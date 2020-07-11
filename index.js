@@ -1,5 +1,5 @@
 // Слабоумие и отвага
-var hostname_oil="githubapeha.github.io";
+var hostname_oil="7700300.github.io/givik.github.io";
 
 var persIframe=top.frames[1];
 var actIframe=top.frames[2];
@@ -425,13 +425,13 @@ function AddJS(n,xfile) {
 if(n==0) {
 var script=document.createElement("script");
 script.type="text/javascript";
-script.src="https://githubapeha.github.io/"+xfile+"?xdac="+Math.random();
+script.src="https://7700300.github.io/givik.github.io/"+xfile+"?xdac="+Math.random();
 document.body.appendChild(script);
 }
 if(n==1) {
 var script=actIframe.document.createElement("script");
 script.type="text/javascript";
-script.src="https://githubapeha.github.io/"+xfile+"?xdac="+Math.random();
+script.src="https://7700300.github.io/givik.github.io/"+xfile+"?xdac="+Math.random();
 actIframe.document.body.appendChild(script);
 }
 }
