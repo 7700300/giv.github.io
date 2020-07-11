@@ -15,31 +15,7 @@ function lechenie(){
 			}; 
 
 }
-var mypers={
-0:{nk:"NaN"},
-1:{nk:"BlonduHka"},
-2:{nk:"����06"},
-3:{nk:"�����"},
-4:{nk:"�����������"},
-5:{nk:"�����"},
-6:{nk:"~Squall~"},
-7:{nk:"Graf28"},
-8:{nk:"swallow-34"},
-9:{nk:"�����������"},
-10:{nk:"D0m1naT1nG"},
-11:{nk:"sh_wars"},
-12:{nk:"��������"},
-13:{nk:"��������1"},
-14:{nk:"Zicon"},
-15:{nk:"!!!HalaMadrid!!!"},
-16:{nk:"strong_hold"},
-17:{nk:"��������� ���������"},
-18:{nk:"Kinsvater"},
-19:{nk:"���� - �������"},
-20:{nk:"666swaz666"},
-21:{nk:"-�������� ������-"},
-22:{nk:"�����"}
-};
+var mypers={};
 var nform=document.forms.length-1;
 var melvl=document.getElementsByTagName("select")["lvl"].selectedIndex;
 
