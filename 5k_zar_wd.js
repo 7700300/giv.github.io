@@ -106,7 +106,7 @@ function looper() {
     log.v("timerCountDown = " + timerCountDown )
     if(timerCountDown == "-1") { // Timer is off
         log.i("response = " + overlayResponse + ", currentState = " + currentState);
-        if(overlayResponse == 'Вы должны иметь в руках "Золотой топор лесоруба" или "Топор лесоруба"') {
+        if(overlayResponse == 'Вы должны иметь в руках "Топор лесоруба" или "Золотой топор лесоруба"') {
             stopLoop();
             var promise = new Promise(function (resolve) {
                 jQuery.get('https://5kings.ru/bag_type_17.chtml', function (response) {
