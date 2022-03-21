@@ -1,5 +1,5 @@
 var chatIframe = top.frames["d_chatact"];
-var chatIframeWin = chatIframe.window;
+var chatIframeWin = top.frames["d_act"].window;
 
 var TimeShiftTxt = "";
 var TimeShiftShow = false;
@@ -11,9 +11,9 @@ var startKraft1TimeoutId = null,
     changeDirectionTimeoutId = null;
 var ResEnd = 0;
 
-var sellTrav = [76, 78, 81, 87, 90, 95]; // 76 сундук
-var sellTravTitle = ["Бессмертник","Дуб","Клен","Первоцвет","Шалфей"];
-var sellTravMiss = [78, 81, 87, 95];
+var sellTrav = [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 89, 90, 91, 92, 93, 94, 95]; // 76 сундук
+var sellTravTitle = ["Базилик","Бессмертник","Боярышник","Василек синий","Дуб","Дурман","Душица","Зверобой","Земляника","Календула","Клен","Лимонная мята","Одуванчик","Первоцвет","Пустырник","Ромашка","Толокнянка","Тысячелистник","Шалфей","Шиповник","Щавель"];
+var sellTravMiss = [77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 89, 90, 91, 92, 93, 94, 95];
 var ChangeNapr = 0;
 var marshrut = [];
 var indexTrav = [];
@@ -272,7 +272,7 @@ function autoGoFunc(destinationX, destinationY) {
     var shagY = shag[size][1];
     var myGroupX = +global_data.my_group.posx;
     var myGroupY = +global_data.my_group.posy;
-
+    console.log("mytchk "+myGroupX);
     var shagovX = Math.abs(destinationX - myGroupX) / shagX;
     var shagovY = Math.abs(destinationY - myGroupY) / shagY;
     signX = Math.sign(destinationX - myGroupX);
@@ -302,7 +302,9 @@ function autoGoFunc(destinationX, destinationY) {
     var log_text="<span id=SmokeBreak></span><span style=color:blue>"+autoGoCount+"</span>:";
     document.getElementById("coorsGo").innerHTML=log_text+"След.т. "+to4kaGoX+":"+to4kaGoY+"<br>";
 
-    var to4ka = to4kaGoX + (to4kaGoY - 1) * 6000;
+    var to4ka = to4kaGoX + (to4kaGoY - 1) * 4000;
+// var to4ka = chatIframeWin.GetAbs(to4kaGoX,to4kaGoY);¶
+
     if (to4kaGoX === destinationX && to4kaGoY === destinationY && goToTrav === false) {
         var tmpMarshT = marshrut.shift();
         if (tmpMarshT === undefined) {
@@ -556,13 +558,15 @@ var myGroup = GD.my_group;
                     tmpShagY = Math.floor(Math.random() * (3)) + 1;
                 var tmpPointX = myPosX + (tmpNaprX * tmpShagX),
                     tmpPointY = myPosY + (tmpNaprY * tmpShagY);
-                var tmpPointId = tmpPointX + tmpPointY * 6000;
+                var tmpPointId = tmpPointX + tmpPointY * 4000;
                 MyCursor(tmpPointId);
                 setTimeout(function() {
                 sendWSMessage(tmpPointId, "myTimer::tmpto4ka  равна 0! GO TO: "+tmpPointX+":"+tmpPointY);
                 }, getRandomInt(300, 800, false));
             } else {
                 var destinationPoints = getDestinationPoint();
+                console.log(destinationPoints);
+
                 if (destinationPoints !== null) {
                     destGox = destinationPoints.x;
                     destGoy = destinationPoints.y;
@@ -581,7 +585,9 @@ var myGroup = GD.my_group;
                     autoGoCount++;
                     var log_text="<span id=SmokeBreak></span><span style=color:blue>"+autoGoCount+"</span>:";
                     document.getElementById("coorsGo").innerHTML=log_text+"След.т. "+to4kaGoX+"x"+to4kaGoY+"<br>";
-                    var to4ka = to4kaGoX + (to4kaGoY - 1) * 6000;
+                    var to4ka = to4kaGoX + (to4kaGoY - 1) * 4000;
+                   // var to4ka = chatIframeWin.GetAbs(to4kaGoX,to4kaGoY);
+
                     MyCursor(to4ka);
                     setTimeout(function() {
                     sendWSMessage(to4ka, "myTimer::to4ka  равна 0!!! GO TO: "+to4kaGoX+":"+to4kaGoY);
